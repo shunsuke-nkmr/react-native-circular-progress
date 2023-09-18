@@ -1,3 +1,5 @@
+//src/AnimatedCircularProgress.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { Animated, Easing } from "react-native";
@@ -59,14 +61,14 @@ export default class AnimatedCircularProgress extends React.PureComponent {
     if (!this.props.tintColorSecondary) {
       return this.props.tintColor;
     }
-
+  
     const tintAnimation = this.state.fillAnimation.interpolate({
       inputRange: [0, 100],
       outputRange: [this.props.tintColor, this.props.tintColorSecondary],
     });
-
+  
     return tintAnimation;
-  }
+  }  
 
   render() {
     const { fill, prefill, ...other } = this.props;
@@ -89,6 +91,7 @@ AnimatedCircularProgress.propTypes = {
   onAnimationComplete: PropTypes.func,
   useNativeDriver: PropTypes.bool,
   delay: PropTypes.number,
+  tintColorSecondary: PropTypes.string, // 追加
 };
 
 AnimatedCircularProgress.defaultProps = {
